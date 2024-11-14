@@ -8,7 +8,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ChambreService {
 
-  URL = "http://192.168.98.152:8082/tpFoyer17/api/chambres"
+  URL = " http://172.20.10.6:8082/tpFoyer17/api/chambres"
   constructor(private http:HttpClient) { }
 
 
