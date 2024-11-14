@@ -27,6 +27,8 @@ export class ChambreAddComponent {
       this.chambreService.AddChambre(chambre).subscribe(
         (response) => {
           console.log('Chambre Added:', response);
+          this.chambreService.filter('RegisterClick');
+
           // Optionally, close the modal
         },
         (error) => {

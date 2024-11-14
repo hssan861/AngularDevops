@@ -26,18 +26,37 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let chambre of chambres">
+                <tr *ngFor="let chambre of chambres ;let i=index">
                     <td>{{ chambre.idChambre }}</td>
                     <td>{{ chambre.numeroChambre }}</td>
                     <td>{{ chambre.typeChambre }}</td>
                     <td>
-                        <button class="btn btn-warning btn-sm me-3">
-                            <i class="bi bi-pencil-square"></i> 
-                        </button>
-                        
-                        <button class="btn btn-danger btn-sm">
-                            <i class="bi bi-trash"></i> 
-                        </button>
+                        <button
+                        type="button"
+                        data-bs-toggle="modal"
+                        [attr.data-bs-target]="'#exampleModalupdate' + i"
+                        class="btn btn-warning btn-sm me-3"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Edit"
+                      >
+                      <i class="bi bi-pencil-square"></i> 
+                    </button>
+
+                                                    <!-- Modal -->
+                                                    <div
+                                                    class="modal fade"
+                                                    [id]="'exampleModalupdate' + i"
+                                                    role="dialog"
+                                                    tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true"
+                                                  >
+                                                  <app-chambre-edit [chambre]="chambre"></app-chambre-edit>
+                                            
+                                                  </div>
+                                                
+
                     </td>
                 </tr>
             </tbody>

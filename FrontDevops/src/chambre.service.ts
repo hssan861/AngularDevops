@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Chambre } from './chambre';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChambreService {
 
-  URL = "http://localhost:8082/tpFoyer17/api/chambres"
+  URL = "http://192.168.98.152:8082/tpFoyer17/api/chambres"
   constructor(private http:HttpClient) { }
 
 
@@ -17,6 +18,13 @@ export class ChambreService {
       'Content-type': 'application/json'
     })
   }
+  private _listners = new Subject<any>();
+  listen(): Observable<any> {
+   return this._listners.asObservable();
+ }
+ filter(filterBy:string){
+   this._listners.next(filterBy);
+ }
   getChambres(){
     return this.http.get<Chambre[]>(this.URL+"/retrieveAllChambres");
   }
