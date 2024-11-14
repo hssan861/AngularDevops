@@ -7,8 +7,8 @@ services:
     ports:
       - "4200:80"
     networks:
-      - foyerChambre
+      - devops_foyerChambre
 
 networks:
-  foyerChambre:
+  devops_foyerChambre:
     external: true
