@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      image: hssan577/angular_image
     ports:
       - "4200:80"
     networks:
